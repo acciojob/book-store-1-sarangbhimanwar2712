@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("books")
+//@RequestMapping("books")
 public class BookController {
 
     private List<Book> bookList;
@@ -47,8 +47,8 @@ public class BookController {
     BookService bookService ;
     // post request /create-book
     // pass book as request body
-    @PostMapping("/create-book")
-    public ResponseEntity<Book> createBook(@RequestBody Book book){
+    @PostMapping("/book/create-book")
+    public ResponseEntity createBook(@RequestBody Book book){
         Book newBook = bookService.createBook(book) ;
         return new ResponseEntity<>(newBook, HttpStatus.CREATED);
     }
@@ -58,7 +58,7 @@ public class BookController {
     // getBookById()
     @GetMapping("/get-book-by-id/{id}")
     public ResponseEntity getBookById(@PathVariable("id")int id){
-        Book book = BookService.bookRepository.getBook(id); ;
+        Book book = bookService.getBook(id); ;
         return new ResponseEntity<>(book, HttpStatus.ACCEPTED);
     }
 

@@ -9,7 +9,6 @@ import java.util.List;
 public class BookService {
 
     @Autowired
-    static
     BookRepository bookRepository ;
 
     public Book createBook(Book book){
@@ -28,11 +27,10 @@ public class BookService {
     }
 
     public List<Book> getAllBooks(){
-
         return bookRepository.getAllBooks() ;
     }
 
-    public static List<Book> getBookByAuthor(String auname){
+    public List<Book> getBookByAuthor(String auname){
         return bookRepository.getBookByAuthor(auname) ;
     }
     public List<Book> getBookByGenre(String gnname){
